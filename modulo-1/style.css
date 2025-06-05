@@ -1,3 +1,7 @@
 .paragraph-1 {
     color:aqua
 }
+
+a:hover {
+    color: rgb(248, 5, 212)
+}
