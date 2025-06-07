@@ -1,7 +1,101 @@
 .paragraph-1 {
-    color:aqua
+    color:aqua;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
 }
+
+/*Si queremos usar una fuente en concreto la tendríamos que descargar y poner este código
+@font-face {
+    font-family: nombre de la fuente;
+    src: url (./ruta del archivo de la fuente)
+}
+*/
 
 a:hover {
     color: rgb(248, 5, 212)
+}
+
+.container {
+    border:solid;
+    border-color:black
+}
+
+.container p {
+    color:red;
+    border:solid;
+    border-color:aquamarine
+}
+
+/*esto solo aplica a los parrafos directos del div container, no los que hay dentro de otro div*/
+.container > p {
+    color:green;
+    border:solid;
+    border-color:rgb(204, 11, 133)
+}
+
+:root {
+    --button-color: blue;
+    --text-color: aliceblue
+}
+/*Esto se usa en proyectos grandes cuando hay que hacer cambios porque es más rápido y sencillo que ir cambiando de uno en uno*/
+
+button {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border-color:aliceblue;
+    border-radius: 25%
+}
+
+.background {
+    width: 500px;
+    height: 500px;
+    margin: 20px;
+    background-image: url(./images/sunset.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*explicacion de flex*/
+.container-2 {
+    background-color: red;
+    padding: 20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.item {
+    width: 300px;
+    background-color: pink;
+}
+
+.item-1 {
+    height: 50px
+}
+
+.item-2 {
+    height: 75px;
+}
+
+.item-3 {
+    height: 150px;
+}
+
+.item-4 {
+    height: 300px;
+}
+
+.item-5 {
+    height: 30px;
+}
+
+.item-6 {
+    height:90px
 }
