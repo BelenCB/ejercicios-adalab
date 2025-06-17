@@ -99,3 +99,30 @@ button {
 .item-6 {
     height:90px
 }
+
+.test-grid {
+    background-color: aquamarine;
+    padding: 10px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 100px 80px;
+    gap: 20px;
+}
+
+.grid__item--first {
+    background-color: red;
+    grid-column: 1 / 3;
+}
+
+.grid__item--second {
+    background-color: green;
+    grid-row: 2 / 4;
+}
+
+.grid__item--third {
+    background-color: blue;
+}
+
+.grid__item--fourth {
+    background-color: yellow;
+}

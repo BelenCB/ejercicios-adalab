@@ -45,5 +45,55 @@
         <div class="item item-5">Elemento 5</div>
         <div class="item item-6">Elemento 6</div>
    </div>
+
+   <div class="test-grid">
+        <div class="grid__item--first">Item 1</div>
+        <div class="grid__item--second">Item 2</div>
+        <div class="grid__item--third">Item 3</div>
+        <div class="grid__item--fourth">Item 4</div>
+   </div>
+
+   <form method="post" action="/">
+    <!-- hay dos method principales, get y post, post suele ser el tipico formulario de iniciar sesión o registarse -->
+        <label for="firstName">Nombre</label>
+        <!-- esta etiqueta solo se usa en formularios -->
+        <input type="text" name="FirstName" placeholder="Nombre" id="firstName" required />
+        <label for="lastName">Apellidos</label>
+        <input type="text" name="LastName" placeholder="Apellidos" id="lastName" />
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" placeholder="email" id="email" />
+        <label for="phone">Teléfono</label>
+        <input type="tel" name="phone" id="phone" disabled value="671123456" />
+        <!-- disabled es para cuando hay un dato del formulario que no queremos que el usuario modifique -->
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" placeholder="contraseña" id="password" />
+        <div>
+            <p>Suplementos de vuelo:</p>
+            <label for="flightoption-1">
+                <input id="flightoption-1" type="checkbox" name="flightoptions" value="choose-seat" />
+                Selección de asiento
+            </label>
+        </div>
+        <div>
+            <label for="flightoption-2">
+                <input id="flightoption-2" type="checkbox" name="flightoptions" value="assurance" />
+                Seguro
+            </label>
+        </div>
+        <div>
+            <label for="flightoption-3">
+                <input id="flightoption-3" type="checkbox" name="flightoptions" value="rent-car" />
+                Coche de alquiler
+            </label>
+        </div>
+        <p>Método de pago:</p>
+        <div></div>
+
+        <label for="more-info">Información adicional</label>
+        <textarea id="more-info" name="more-info" placeholder="Escribe aquí tus comentarios"></textarea>
+        <label for="file">Subir archivo:</label>
+        <input type="file" id="file" name="file"  />
+        <button type="submit">Enviar</button>
+   </form>
 </body>
 </html>
