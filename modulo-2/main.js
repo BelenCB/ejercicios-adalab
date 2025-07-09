@@ -71,3 +71,29 @@ container.innerHTML = "<h1>lorem ipsum</h1><img src='http://via.placeholder.com/
 // ejercicio 6 variables
 
 document.querySelector(".button-secondary").classList.add(".button.disabled");
+
+// ejercicio 6 eventos
+
+const buttonFilms = document.querySelector(".button-films");
+const listFilms = document.querySelector(".list-films");
+
+const inception = 'Inception';
+const theButterFlyEffect = 'The butterfly effect';
+const eternalSunshineOfTheSM = 'Eternal sunshine of the spotless mind';
+const blueVelvet = 'Blue velvet';
+const split = 'Split';
+
+buttonFilms.addEventListener("click", () => {
+    listFilms.innerHTML += "<li>" + inception + "</li>";
+    listFilms.innerHTML += "<li>" + theButterFlyEffect + "</li>";
+    listFilms.innerHTML += "<li>" + eternalSunshineOfTheSM + "</li>";
+    listFilms.innerHTML += "<li>" + blueVelvet + "</li>";
+    listFilms.innerHTML += "<li>" + split + "</li>";
+});
+
+const chosenFilm = document.querySelector(".chosen-film");
+
+listFilms.addEventListener("click", (event) => {
+    console.log(event.target.textContent);
+    chosenFilm.innerHTML = "La peli seleccionada es:" + event.target.textContent;
+});
