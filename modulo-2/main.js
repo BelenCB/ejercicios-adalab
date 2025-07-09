@@ -1,3 +1,5 @@
+"use strict";
+
 console.log("estamos ready");
 
 document.querySelector("h1").innerHTML = "¡Hola,mundo!";
@@ -54,3 +56,18 @@ const viewport = window;
 viewport.addEventListener("resize", () => {
     console.log("Está cambiando la resolución de la pantalla");
 });
+
+// ejercicio 3 variables
+
+const titleList = document.querySelector(".title-list");
+const alumn = document.querySelector(".second-element").textContent;
+titleList.innerHTML = titleList.textContent + " " + alumn;
+
+// ejercicio 4 variables
+
+const container = document.querySelector(".container");
+container.innerHTML = "<h1>lorem ipsum</h1><img src='http://via.placeholder.com/350x150'/><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>";
+
+// ejercicio 6 variables
+
+document.querySelector(".button-secondary").classList.add(".button.disabled");

@@ -1,0 +1,12 @@
+/* ejercicio 6 variables */
+.button-js {
+    padding: 20px;
+    border-radius: 30px;
+    border-color:blue;
+    background-color:aqua;
+    color:white;
+}
+
+.button-disabled {
+    opacity: 0.5;
+}
