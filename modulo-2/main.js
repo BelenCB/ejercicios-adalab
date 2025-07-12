@@ -97,3 +97,22 @@ listFilms.addEventListener("click", (event) => {
     console.log(event.target.textContent);
     chosenFilm.innerHTML = "La peli seleccionada es:" + event.target.textContent;
 });
+
+//tipos de funciones, utilizaremos las arrowFunction a partir de ahora
+
+function normalFunction(a, b) {
+    console.log(a, b);
+    return a + b;
+};
+
+const anonimousFunction = function (a, b) {
+    console.log(a, b);
+    return a + b;
+};
+
+const arrowFunction = (a, b) => {
+    console.log(a, b);
+    return a + b;
+};
+
+arrowFunction(1, 2);
