@@ -116,3 +116,72 @@ const arrowFunction = (a, b) => {
 };
 
 arrowFunction(1, 2);
+
+// bucle for
+
+for (let i = 0; i < 20; i++) {
+    console.log("Me gustan los bucles");
+    console.log("voy por la vuelta " + i);
+};
+
+const scores = [2, 5, 7, 2, 5, 7, 4, 6, 2];
+let acc = 0;
+for (let i = 0; i < scores.length; i++) {
+    console.log("Voy por la vuelta " + i);
+    console.log("En esta vuelta tienes que sumar " + scores[i]);
+    acc = acc + scores[i];
+    console.log("El resultado es " + acc);
+};
+
+console.log("El resultado final es " + acc);
+
+// bucle for ... of: sirve para recorrer un array
+
+const movies = ["Harry Potter", "The Lord of the Rings", "How to train your dragon", "Frozen", "Indiana Jones"];
+
+for (let i = 0; i < movies.length; i++) {
+    console.log(`${movies[i]} was nominated to Academy Awards this year`);
+};
+
+for (const movie of movies) {
+    console.log(`${movie} was nominated to Academy Awards this year`);
+};
+
+// bucle for ... in: se usa para objetos
+
+const userData = {
+    name: "Ana",
+    email: "ana@gmail.com",
+};
+
+for (const item in userData) {
+    console.log(item);
+    console.log(userData[item]);
+};
+
+// bucle forEach
+
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach((number, index) => {
+    console.log("Número " + number);
+});
+
+// querySelectorAll
+
+const paragraph = document.querySelector("p");
+console.log(paragraph);
+// aquí solo coge el primer párrafo que encuentra
+
+const paragraphs = document.querySelectorAll("p");
+console.log(paragraphs);
+// aquí pilla todos los párrafos
+
+paragraphs[0].innerHTML = "Este es mi primer párrafo modificado";
+
+paragraphs.forEach((paragraph) => {
+    console.log(paragraph);
+    paragraph.classList.add("custom");
+});
+
+
+
