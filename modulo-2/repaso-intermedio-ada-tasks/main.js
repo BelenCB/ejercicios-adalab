@@ -42,9 +42,18 @@ list.addEventListener("click", handleClickCheckbox);
 
 //Añadir nueva tarea con el formulario de la izquierda
 
-//seleccionar el botón con query selector
-//escuchar el click del botón
-//crear una función manejadora handleClickAdd
-//coger el valor del input
-//hacer push con la nueva tarea
-//actualizar el DOM
+const button = document.querySelector(".add--button");
+const input = document.querySelector(".add--input");
+
+const handleClickAdd = (event) => {
+  event.preventDefault();
+  const addTask = {
+    name: input.value,
+    completed: false,
+    id: 1234,
+  };
+  tasks.push(addTask);
+  renderTasks(tasks);
+};
+
+button.addEventListener("click", handleClickAdd);

@@ -185,3 +185,27 @@ paragraphs.forEach((paragraph) => {
 
 
 
+// ejercicio 3 bucles
+
+const inputBook1 = document.querySelector(".input--book1");
+const inputBook2 = document.querySelector(".input--book2");
+const buttonBooks = document.querySelector(".button--books");
+const answerBooks = document.querySelector(".answer--books");
+
+const books = [];
+
+const handleClickButton = () => {
+  const book1 = inputBook1.value;
+  const book2 = inputBook2.value;
+  books.push(book1, book2);
+  console.log(books);
+  for (const book of books) {
+    answerBooks.innerHTML += " ¡A mí también me encantó " + book + "!"
+  };
+};
+
+buttonBooks.addEventListener("click", handleClickButton);
+
+
+
+
