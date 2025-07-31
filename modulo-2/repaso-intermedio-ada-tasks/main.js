@@ -1,15 +1,6 @@
 "use strict";
 
-const tasks = [
-  { name: "Recoger setas en el campo", completed: true, id: 5 },
-  { name: "Comprar pilas", completed: true, id: 14},
-  { name: "Poner una lavadora de blancos", completed: true, id: 21 },
-  {
-    name: "Aprender cómo se realizan las peticiones al servidor en JavaScript",
-    completed: false,
-    id: 34,
-  },
-];
+let tasks = [];
 
 const list = document.querySelector(".tasks--list");
 
@@ -19,15 +10,23 @@ const renderTasks = (tasks) => {
     if (task.completed) {list.innerHTML += `<li class="task--item">
                             <input id="${task.id}" type="checkbox" checked />
                             <span class="through">${task.name}</span>
+                            <button class="delete--button">Borrar tarea</button>
                     </li>`;
     } else {list.innerHTML += `<li class="task--item">
                             <input id="${task.id}" type="checkbox" />
                             <span>${task.name}</span>
+                            <button class="delete--button">Borrar tarea</button>
                     </li>`;}
     });
 };
 
-renderTasks(tasks);
+fetch('https://dev.adalab.es/api/todo')
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    tasks = data.results;
+    renderTasks(tasks);
+  });
 
 const handleClickCheckbox = (event) => {
     const idTask = parseInt(event.target.id);
@@ -42,7 +41,7 @@ list.addEventListener("click", handleClickCheckbox);
 
 //Añadir nueva tarea con el formulario de la izquierda
 
-const button = document.querySelector(".add--button");
+const addButton = document.querySelector(".add--button");
 const input = document.querySelector(".add--input");
 
 const handleClickAdd = (event) => {
@@ -56,4 +55,40 @@ const handleClickAdd = (event) => {
   renderTasks(tasks);
 };
 
-button.addEventListener("click", handleClickAdd);
+addButton.addEventListener("click", handleClickAdd);
+
+//Hacer que funcione el botón borrar todas las tareas
+
+const deleteAllButton = document.querySelector(".delete-all--button");
+
+const handleClickDeleteAll = () => {
+  tasks = [];
+  renderTasks(tasks);
+};
+
+deleteAllButton.addEventListener("click", handleClickDeleteAll);
+
+//Hacer funcionar el botón de completar todas las tareas
+
+const completedButton = document.querySelector(".completed--button");
+
+const handleCompleteTasks = () => {
+  tasks.map((task) => {
+    return task.completed;
+  });
+  console.log(tasks);
+  renderTasks(tasks);
+};
+
+completedButton.addEventListener("click", handleCompleteTasks);
+
+
+
+// hacer que funcionen los botones de borrar una tarea en concreto
+// hacer que se pueda filtrar por tarea, botón buscar
+
+//Añadamos por encima del listado de tareas una frase que diga: Tienes X tareas. Y completadas y Z por realizar.
+//Cada vez que una tarea se marque/desmarque deberíamos actualizar esta información.
+
+//guardar la lista de tareas en local storage para que al actualizar conserve los cambios
+
