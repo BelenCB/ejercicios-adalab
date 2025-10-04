@@ -8,6 +8,9 @@ const App = () => {
   const [name, setName] = useState("");
   const [count, setCount] = useState(0);
   const [mode, setMode] = useState("light");
+  const [formName, setFormName] = useState("");
+  const [size, setSize] = useState("S");
+  const [radioSize, setRadioSize] = useState("");
 
   const userName = "María";
   const userClassName = "user-name";
@@ -57,6 +60,28 @@ const App = () => {
     }
   }
 
+  const handleName = (ev) => {
+    setFormName(ev.target.value);
+  }
+
+  const handleSize = (ev) => {
+    setSize(ev.target.value);
+  }
+
+  const handleRadioSize = (ev) => {
+    setRadioSize(ev.target.value);
+  }
+
+  const handleOnSubmit = (ev) => {
+    ev.preventDefault();
+  }
+
+  const handleFormReset = () => {
+    setFormName("")
+    setSize("S")
+    setRadioSize("")
+  }
+
   return (
     // etiqueta fantasma porque el return solo devuelve un MediaElementAudioSourceNode, se llama fragment y no se ve en el DOM
     <>
@@ -93,6 +118,62 @@ const App = () => {
         <button onClick={handleReduce}>Reducir contador</button>
         <button onClick={handleReset}>Reset</button>
       </div>
+
+      <form onSubmit={handleOnSubmit}>
+        <label htmlFor="name">Escribe tu nombre:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="María García"
+          onChange={handleName}
+          value={formName}
+        />
+        <p>Tu nombre: {formName}</p>
+
+        <label htmlFor="size">Selecciona tu talla de camiseta:</label>
+        <select name="size" id="size" onChange={handleSize} value={size}>
+          <option>Talla S</option>
+          <option>Talla M</option>
+          <option>Talla L</option>
+        </select>
+        <p>Talla elegida: {size}</p>
+
+        <label htmlFor="sizeS">Talla S</label>
+        <input
+          type="radio"
+          id="sizeS"
+          name="size"
+          value="S"
+          onChange={handleRadioSize}
+          checked={radioSize === "S"}
+        />
+
+        <label htmlFor="sizeM">Talla M</label>
+        <input
+          type="radio"
+          id="sizeM"
+          name="size"
+          value="M"
+          onChange={handleRadioSize}
+          checked={radioSize === "M"}
+        />
+
+        <label htmlFor="sizeL">Talla L</label>
+        <input
+          type="radio"
+          id="sizeL"
+          name="size"
+          value="L"
+          onChange={handleRadioSize}
+          checked={radioSize === "L"}
+        />
+        <p>Tu talla es: {radioSize}</p>
+        
+        <input type="submit" value="Enviar" />
+        <button onCLick={handleFormReset}>Reset</button>
+      </form>
+
     </>
   )
 }
