@@ -11,13 +11,13 @@ const HomePage = () => {
     const [users, setUsers] = useState(ls.get("users", []));
 
     useEffect(() => {
-        if (users.length ===0) {
+        if (users.length === 0) {
             getUsers().then(data => {
             setUsers(data);
             ls.set("users", data);
             })
         }
-    }, []);
+    });
 
     const updateName = (value) => {
         setName(value);
