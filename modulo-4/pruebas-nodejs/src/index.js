@@ -3,6 +3,7 @@ const cors = require('cors');
 const mysql = require("./database/mysql-pool");
 const app = express();
 const port = 3000;
+require("dotenv").config();
 
 // Configuración para subir límite de respuesta
 app.use(express.json({limit: '25mb'}));
